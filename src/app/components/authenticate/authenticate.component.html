@@ -1,0 +1,33 @@
+
+<div class="container" *ngIf="access">
+  <div class="login-content mx-auto d-block">
+    <h2 class="page-header" align="center">Authenticate Voters</h2>
+    <form (submit)="onCheck()" class="col-md-12 mx-auto d-block">
+      <div class="form-group">
+        <label>Enter NIC</label>
+        <input type="text" class="form-control" [(ngModel)]="nic" name="nic">
+      </div>
+      <input type="submit" class="btn btn-primary" value="Check!">
+      <input type="submit" class="btn btn-primary" value="Direct Ballot">
+    </form>
+    
+  </div>
+  
+</div>
+
+<div  class="container" *ngIf="access">
+  <div id="booths" class="mx-auto d-block">
+    
+    <div  class="container">
+      <a class="btn btn-info btn-lg" [routerLink]="['/login']">Admin Login</a>
+      <a class="btn btn-info btn-lg" [routerLink]="['/poll_login']">Login to Polling booth</a>
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+
+

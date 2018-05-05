@@ -1,0 +1,23 @@
+<h1 align="center">Final results</h1>
+<div class="container">
+  <table id="mytable" class="table table-bordred table-striped center">
+    <thead>
+      <th>Name</th>
+      <th>Party</th>
+      <th>Candidate Number</th>
+      <th>Number of Votes</th>
+
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of candidates">
+        <td>{{candidate.name}}</td>
+        <td>{{candidate.party}}</td>
+        <td>{{candidate.candidate_no}}</td>
+        <td>{{candidate.votes}}</td>
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>

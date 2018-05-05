@@ -1,0 +1,36 @@
+
+
+<div id="reg" class="body-content">
+  <div class="module">
+    <h1>Register Candidates</h1>
+    <form class="form" (submit)="onRegisterSubmit()">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="name" name="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>NIC</label>
+        <input type="text" [(ngModel)]="nic" name="nic" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Party</label>
+        <input type="text" [(ngModel)]="party" name="party" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Candidate Number</label>
+        <input type="number" [(ngModel)]="candidate_no" name="candidate_no" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" [(ngModel)]="email" name="email" class="form-control" >
+      </div>
+      
+      <div class="avatar"><label>Choose Candidate Picture: </label><input type="file" name="avatar" accept="image/*" required /></div>
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+  </div>
+</div>
+
+
+
+

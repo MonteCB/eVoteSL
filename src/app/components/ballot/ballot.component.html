@@ -1,0 +1,55 @@
+<h2 align="center" *ngIf="booth">Ballot Card</h2>
+<div class='container'>
+  <div id="card" *ngFor="let candidate of candidates" class='card col-sm-8'>
+    <div class='row'>
+      <div class='col-sm-2'>
+        <img src="" alt="party_logo">
+      </div>
+      <div class='col-sm-1'>
+        <h1>
+          <b>{{candidate.candidate_no}}</b>
+        </h1>
+      </div>
+      <div class='col-sm-8'>
+        <h4>
+          <b>{{candidate.name}}</b>
+        </h4>
+        <p>
+          <b>{{candidate.party}}</b>
+        </p>
+      </div>
+      <div class='col-sm-1'>
+        <p> </p>
+        <p>
+          <input type="radio" name="vote" value="{{candidate._id}}"  (change)="change(candidate)" class="iradio_square-red">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class='card bg-light col-sm-8' *ngIf="booth">
+    <div class='row'>
+      <div class='col-sm-2'>
+
+      </div>
+      <div class='col-sm-1'>
+
+      </div>
+      <div class='col-sm-8'>
+        <h4>
+          <b>Reject Vote</b>
+        </h4>
+
+      </div>
+      <div class='col-sm-1'>
+        <p> </p>
+        <p>
+          <input type="radio" name="vote" (change)="change(null)" class="iradio_square-red">
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+<div class="vote container" *ngIf="booth"><input type="submit" (click) ="voteCandidate()"class="btn btn-primary" value="Vote!"></div>

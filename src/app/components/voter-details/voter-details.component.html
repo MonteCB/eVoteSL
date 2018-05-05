@@ -1,0 +1,31 @@
+<h1 align="center">List of Voters</h1>
+<table id="mytable" class="table table-bordred table-striped center">
+  <thead class="fixed">
+    <th>Name</th>
+    <th>NIC</th>
+    <th>District</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let voter of voters">
+      <td>{{voter.name}}</td>
+      <td>{{voter.nic}}</td>
+      <td>{{voter.district}}</td>
+      <td>
+        <p data-placement="top" data-toggle="tooltip" title="Edit">
+          <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit">
+            <span class="fa fa-pencil"></span>
+          </button>
+        </p>
+      </td>
+      <td>
+        <p data-placement="top" data-toggle="tooltip" title="Delete">
+          <button class="btn btn-danger btn-xs" (click) ="deleteVoter(voter._id)" data-title="Delete" data-toggle="modal" data-target="#delete">
+            <span class="fa fa-trash-o"></span>
+          </button>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>

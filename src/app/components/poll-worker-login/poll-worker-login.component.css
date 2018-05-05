@@ -1,0 +1,17 @@
+.login-content{
+    background-color:rgba(0, 0, 80,0.2);
+    margin-top:20vh;
+    padding:50px;
+    width:30vw;
+    border-radius: 10px;
+  }
+  
+  .warn{
+    color: red;
+    margin-top:2vh;
+  
+  }
+  
+  body{
+    background-color: red;
+  }

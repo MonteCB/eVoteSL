@@ -1,0 +1,15 @@
+.login-content{
+  background-color:rgba(110, 111, 50,0.3);
+  margin-top:20vh;
+  padding:50px;
+  width:30vw;
+  border-radius: 20px;
+}
+
+#booths{
+  margin-top: 20px;
+  width: 60vw;
+  background-color:rgba(110, 111, 50,0.3);
+  padding:20px;
+  border-radius: 20px;
+}
