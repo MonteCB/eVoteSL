@@ -8,8 +8,7 @@ export class UserService {
 
   constructor(private http: Http) { }
 
-  update(){
-  }
+ 
 
   getVoter(){
     return this.http.get('http://localhost:3000/users/voter')
@@ -43,7 +42,23 @@ export class UserService {
     let headers = new Headers();
     console.log(currentBooth.id);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/mark_booth', currentBooth,  {headers: headers})
+    return this.http.post('http://localhost:3000/users/mark_booth_deactivate', currentBooth,  {headers: headers})
+      .map(res => res.json());
+  }
+
+  markBoothActive(currentBooth){
+    let headers = new Headers();
+    console.log(currentBooth.id);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/mark_booth_activate', currentBooth,  {headers: headers})
+      .map(res => res.json());
+  }
+
+  markVoter(currentVoter){
+    let headers = new Headers();
+    //console.log(currentVoter.id);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/mark_voter', currentVoter,  {headers: headers})
       .map(res => res.json());
   }
 

@@ -42,10 +42,10 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'results', component: ViewResultsComponent},
-  {path: 'authenticate', component: AuthenticateComponent},
-  {path: 'poll_worker_login', component: PollWorkerLoginComponent},
-  {path: 'poll_login', component: PollingBoothComponent},
-  {path: 'booth_login', component: BoothLoginComponent},
+  // {path: 'authenticate', component: AuthenticateComponent},
+  // {path: 'poll_worker_login', component: PollWorkerLoginComponent},
+  // {path: 'poll_login', component: PollingBoothComponent},
+  // {path: 'booth_login', component: BoothLoginComponent},
   {path: 'dashboard', component: MainComponent, canActivate: [AuthGuard], children: [
       {path: '', component: DashboardComponent},
       {path: 'profile', component: ProfileComponent},
@@ -61,9 +61,13 @@ const appRoutes: Routes = [
       {path: 'profile', component: ProfileComponent}
     ]
   },
-  {path: 'vote', component: MainElectionComponent,  children: [
-    {path: '', component: VoteComponent},
-    {path: 'ballot', component: BallotComponent}
+  {path: 'poll_login', component: MainElectionComponent,  children: [
+    {path: '', component: PollingBoothComponent},
+    {path: 'ballot', component: BallotComponent},
+    {path: 'vote', component: VoteComponent},
+    {path: 'poll_worker_login', component: PollWorkerLoginComponent},
+    {path: 'authenticate', component: AuthenticateComponent},
+    {path: 'booth_login', component: BoothLoginComponent}
   ]}
   
   

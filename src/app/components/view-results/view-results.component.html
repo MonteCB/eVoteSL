@@ -1,5 +1,5 @@
-<h1 align="center">Final results</h1>
-<div class="container">
+<h1 *ngIf = "releaseResults" align="center">Final results</h1>
+<div *ngIf = "releaseResults" class="container">
   <table id="mytable" class="table table-bordred table-striped center">
     <thead>
       <th>Name</th>

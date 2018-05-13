@@ -1,4 +1,5 @@
 <h1 align="center">List of Voters</h1>
+
 <table id="mytable" class="table table-bordred table-striped center">
   <thead class="fixed">
     <th>Name</th>
@@ -14,11 +15,44 @@
       <td>{{voter.district}}</td>
       <td>
         <p data-placement="top" data-toggle="tooltip" title="Edit">
-          <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit">
+          <button class="btn btn-primary btn-xs" (click) ="editVoter(voter)" data-title="Edit" data-toggle="modal" data-target="#myModal">
             <span class="fa fa-pencil"></span>
           </button>
         </p>
       </td>
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog ">       
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Edit Voter</h4>
+            </div>
+            <div class="modal-body">
+            <form class="form-horizontal">
+              <fieldset>              
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Name</label>              
+                <input id="name" name="name" type="text" [(ngModel)]="name" name="name" class="form-control ">                                  
+              </div>             
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="nic">NIC</label>                
+                  <input id="nic" name="nic" type="text" [(ngModel)]="nic" name="nic" class="form-control input-md">               
+              </div>                          
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="district">District</label>               
+                  <input id="district" name="party" type="text" [(ngModel)]="district" name="district" class="form-control input-md">                                  
+              </div>                            
+              </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" (click)="onUpdate()" data-dismiss="modal" class="btn btn-primary">Update</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>          
+        </div>
+      </div>
       <td>
         <p data-placement="top" data-toggle="tooltip" title="Delete">
           <button class="btn btn-danger btn-xs" (click) ="deleteVoter(voter._id)" data-title="Delete" data-toggle="modal" data-target="#delete">

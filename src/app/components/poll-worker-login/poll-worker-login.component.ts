@@ -10,11 +10,21 @@ import {Router} from '@angular/router';
 export class PollWorkerLoginComponent implements OnInit {
   username: String;
   password: String;
+  access: Boolean;
 
   constructor(private authService: AuthService,
               private router: Router) { }
 
   ngOnInit() {
+    this.authService.getAccess()
+      .subscribe(data => {
+        if(data[0].started == false){
+          
+          this.access = false;
+        }else{
+          this.access = true;
+        }
+    });
   }
   onLoginSubmit() {
     // login credentials
@@ -28,11 +38,11 @@ export class PollWorkerLoginComponent implements OnInit {
       if (data.success) {
         this.authService.storeOperatorData(data.token, data.user);
         
-        this.router.navigate(['authenticate']);  // navigate to the dashboard after login
+        this.router.navigate(['poll_login/authenticate']);  // navigate to the dashboard after login
       } else {
         window.alert(data.msg);
         
-        this.router.navigate(['login']);    // navigate to the login if no match
+        this.router.navigate(['poll_login/poll_worker_login']);    // navigate to the login if no match
       }
     });
   }

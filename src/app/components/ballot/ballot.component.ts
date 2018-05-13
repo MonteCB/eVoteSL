@@ -34,7 +34,7 @@ export class BallotComponent implements OnInit {
             this.candidates = candidates;
           });
         }else{
-          this.router.navigate(['/vote']); 
+          this.router.navigate(['/poll_login/vote']); 
         }
       },
       err => {
@@ -83,7 +83,7 @@ export class BallotComponent implements OnInit {
             timer: 1500
           })
     
-        this.router.navigate(['/vote']);  // navigate to the dashboard after login
+        this.router.navigate(['/poll_login/vote']);  // navigate to the dashboard after login
         } else {
           window.alert(data.msg);
           

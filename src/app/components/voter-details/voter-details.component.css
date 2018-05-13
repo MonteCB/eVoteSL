@@ -5,3 +5,8 @@
 h1{
     margin-top: 60px;
 }
+
+.modal-header .close{
+    margin:0;
+}
+

@@ -1,5 +1,5 @@
 .center {
-  allign: center;
+  
   margin: auto;
   margin-top: 50px;
 ;
@@ -11,5 +11,5 @@
   padding: 40px 80px;
   font-size: 50px;
   border-radius: 30px;
-  color: gray;
+  color: white;
 }

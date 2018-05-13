@@ -1,5 +1,5 @@
 
-<div class="container">
+<div *ngIf = 'access' class="container">
   <div class="login-content mx-auto d-block">
     <h2 class="page-header" align="center">Login</h2>
     <form (submit)="onLoginSubmit()" class="col-md-12 mx-auto d-block">

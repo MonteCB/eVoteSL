@@ -59,6 +59,34 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  updateCandidate(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/update_candidate', user, {headers: headers})
+      .map(res => res.json());
+  }
+
+  updateVoter(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/update_voter', user, {headers: headers})
+      .map(res => res.json());
+  }
+
+  updateUser(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/update_user', user, {headers: headers})
+      .map(res => res.json());
+  }
+
+  ChangePassword(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/change_pwd', user, {headers: headers})
+      .map(res => res.json());
+  }
+
   authenticateUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -114,6 +142,38 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  getAccess(){
+    return this.http.get('http://localhost:3000/users/access')
+      .map(res => res.json());
+  }
+
+  newElections() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/new_election', {headers: headers})
+      .map(res => res.json());
+  }
+
+  startElection() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/start_election', {headers: headers})
+      .map(res => res.json());
+  }
+
+  stopElection() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/stop_election', {headers: headers})
+      .map(res => res.json());
+  }
+
+  releaseResult() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/release_results', {headers: headers})
+      .map(res => res.json());
+  }
 
 
   storeUserData(token, user) {
