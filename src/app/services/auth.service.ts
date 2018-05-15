@@ -43,10 +43,16 @@ export class AuthService {
   }
 
   registerVoter(user) {
-    console.log(user.nic);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/users/register_voter', user, {headers: headers})
+      .map(res => res.json());
+  }
+
+  registerParty(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/register_party', user, {headers: headers})
       .map(res => res.json());
   }
 

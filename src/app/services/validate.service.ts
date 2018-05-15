@@ -30,6 +30,14 @@ export class ValidateService {
     }
   }
 
+  validatePartyRegister(user) {
+    if (user.name === undefined || user.party_id === undefined) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   validatePollRegister(user) {
     if (user.booth_id === undefined || user.poll_station === undefined || user.password === undefined) {
       return false;

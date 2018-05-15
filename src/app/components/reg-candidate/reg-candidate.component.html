@@ -14,8 +14,13 @@
       </div>
       <div class="form-group">
         <label>Party</label>
-        <input type="text" [(ngModel)]="party" name="party" class="form-control">
+        <select  class="form-control" name="party" [(ngModel)]="party">
+          
+          <option *ngFor="let party of parties" value= "{{party.name }}">{{party.name}}</option>
+          
+        </select>
       </div>
+  
       <div class="form-group">
         <label>Candidate Number</label>
         <input type="number" [(ngModel)]="candidate_no" name="candidate_no" class="form-control">
@@ -25,7 +30,7 @@
         <input type="text" [(ngModel)]="email" name="email" class="form-control" >
       </div>
       
-      <div class="avatar"><label>Choose Candidate Picture: </label><input type="file" name="avatar" accept="image/*" required /></div>
+      
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>
   </div>

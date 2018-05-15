@@ -20,6 +20,11 @@ export class UserService {
       .map(res => res.json());
   }
 
+  getParty(){
+    return this.http.get('http://localhost:3000/users/party')
+      .map(res => res.json());
+  }
+
   deleteVoter(id){
     return this.http.delete('http://localhost:3000/users/voter/'+ id)
       .map(res => res.json());

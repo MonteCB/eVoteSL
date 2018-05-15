@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ValidateService} from '../../services/validate.service';
 import {AuthService} from '../../services/auth.service';
 import swal from 'sweetalert2';
-
+import { UserService } from '../../services/user.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./reg-candidate.component.css']
 })
 export class RegCandidateComponent implements OnInit {
+  parties: any[] = [];
   name: String;
   nic: String;
   party: String;
@@ -19,9 +20,14 @@ export class RegCandidateComponent implements OnInit {
 
   constructor(private validateService: ValidateService,
               private authService: AuthService,
-              private router: Router) { }
+              private router: Router,
+              private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getParty()
+      .subscribe(parties => {
+        this.parties = parties;
+      });
   }
 
   onRegisterSubmit() {
