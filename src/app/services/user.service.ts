@@ -25,6 +25,11 @@ export class UserService {
       .map(res => res.json());
   }
 
+  getPollStation(){
+    return this.http.get('http://localhost:3000/users/poll_station')
+      .map(res => res.json());
+  }
+
   deleteVoter(id){
     return this.http.delete('http://localhost:3000/users/voter/'+ id)
       .map(res => res.json());
@@ -64,6 +69,14 @@ export class UserService {
     //console.log(currentVoter.id);
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/users/mark_voter', currentVoter,  {headers: headers})
+      .map(res => res.json());
+  }
+
+  markPollStation(currentPoll){
+    let headers = new Headers();
+    //console.log(currentVoter.id);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/mark_poll', currentPoll,  {headers: headers})
       .map(res => res.json());
   }
 
