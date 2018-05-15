@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ValidateService} from '../../services/validate.service';
 import {AuthService} from '../../services/auth.service';
-
+import swal from 'sweetalert2';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import {Router} from '@angular/router';
 
@@ -29,7 +29,13 @@ export class CreateBoothComponent implements OnInit {
     };
     // required
     if (!this.validateService.validatePollRegister(user)) {
-      window.alert('Please fill in all fields');
+      swal({
+        position: 'top',
+        type: 'warning',
+        title: 'Please fill all the fields',
+        showConfirmButton: false,
+        timer: 1500
+      });
       return false;
     }
     
@@ -38,11 +44,26 @@ export class CreateBoothComponent implements OnInit {
 
       if (data.success) {
         
-        this.flashMessage.show('Polling Booth is added to the system', {cssClass: 'alert-success', timeout: 3000});
-        this.router.navigate(['/dashboard']);
+        swal({
+          position: 'top',
+          type: 'success',
+          title: 'successfully added',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.booth_id = undefined;
+        this.poll_station = undefined;
+        this.password = undefined;
+        
       } else {
-        window.alert(data.msg);
-        //this.router.navigate(['/create_booth']);
+        swal({
+          position: 'top',
+          type: 'warning',
+          title: data.msg,
+          showConfirmButton: false,
+          timer: 1500
+        });
+        
       }
     });
   }

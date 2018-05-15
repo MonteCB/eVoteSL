@@ -41,11 +41,23 @@ export class BoothLoginComponent implements OnInit {
 
       if (data.success) {
         this.authService.storeBoothData(data.token, data.booth);
+        swal({
+          toast: true,
+          type:"success",
+          title: 'Logged in successfully',
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
         this.router.navigate(['/poll_login/vote']);  // navigate to the vote after login
       } else {
-        this.flashMessage.show(data.msg, {
-          cssClass: 'alert-danger',
-          timeout: 5000
+        swal({
+          toast: true,
+          type:"error",
+          title: data.msg,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
         });
         this.router.navigate(['/poll_login/booth_login']);    // navigate to the booth login if no match
       }

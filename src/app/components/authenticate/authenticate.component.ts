@@ -77,10 +77,10 @@ export class AuthenticateComponent implements OnInit {
                   confirmButtonColor: '#3085d6',
                   cancelButtonColor: '#d33',
                   confirmButtonText: 'Mark as voted'
-                }).then(() => {
-                  //this.test();
-                  this.initiateBooth(); // this should execute now
-      
+                }).then((result) => {
+                  if (result.value) {
+                    this.initiateBooth(); // this should execute now
+                  }
                 })
               }
               else if (data.msg == "Voter " + this.nic + " has already voted") {

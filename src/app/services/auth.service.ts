@@ -16,7 +16,6 @@ export class AuthService {
   constructor(private http: Http) {
     this.authToken = localStorage.getItem('id_token');
     this.user = localStorage.getItem('user');
-    console.log(this.user);
     
   }
  // register authentication

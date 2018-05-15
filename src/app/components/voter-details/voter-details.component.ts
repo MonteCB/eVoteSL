@@ -33,10 +33,17 @@ export class VoterDetailsComponent implements OnInit {
 
   }
   deleteVoter(id) {
-    
-    if(confirm("Are you sure to delete this voter?")) {
-      var voters = this.voters;
-      this.userService.deleteVoter(id).subscribe(data => {
+    swal({
+      title: "Are you sure to remove this voter?",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Remove'
+    }).then((result) => {
+      if (result.value) {
+        var voters = this.voters;
+        this.userService.deleteVoter(id).subscribe(data => {
       
         if(data._id == id){
           for (var i = 0; i < voters.length; i++) {
@@ -46,7 +53,11 @@ export class VoterDetailsComponent implements OnInit {
           }
         }
       })
-    }
+      }
+      
+
+    })
+    
   }
 
   editVoter(voter){

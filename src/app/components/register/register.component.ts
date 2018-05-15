@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ValidateService} from '../../services/validate.service';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -35,13 +36,24 @@ export class RegisterComponent implements OnInit {
     };
     // required
     if (!this.validateService.validateRegister(user)) {
-      window.alert('Please fill in all fields');
+      swal({
+        position: 'top',
+        type: 'warning',
+        title: 'Please fill all the fields',
+        showConfirmButton: false,
+        timer: 1500
+      });
       return false;
     }
     // Validate Email
     if (!this.validateService.validateEmail(user.email)) {
-      window.alert('Please use a valid email');
-      //this.flashMessage.show('Please use a valid email', {cssClass: 'alert-danger', timeout: 3000});
+      swal({
+        position: 'top',
+        type: 'warning',
+        title: 'Enter a valid email address',
+        showConfirmButton: false,
+        timer: 1500
+      });
       return false;
     }
     
@@ -50,11 +62,27 @@ export class RegisterComponent implements OnInit {
 
       if (data.success) {
         
-        window.alert('Secondary admin is added to the system');
-        this.router.navigate(['/dashboard']);
+        swal({
+          position: 'top',
+          type: 'success',
+          title: 'successfully registered',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.name = undefined;
+        this.username = undefined;
+        this.email = undefined;
+        this.password = undefined;
+        this.type = undefined;
+        //this.router.navigate(['/dashboard/register']);
       } else {
-        window.alert(data.msg);
-        //this.router.navigate(['/dashboard']);
+        swal({
+          position: 'top',
+          type: 'warning',
+          title: data.msg,
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     });
   }

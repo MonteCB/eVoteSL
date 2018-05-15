@@ -22,7 +22,6 @@ export class ElectionComponent implements OnInit {
         this.started = data[0].started;
         this.newElection = data[0].new_election;
         this.releaseResults = data[0].can_release;
-        console.log(this.stopped);
       });
   }
 

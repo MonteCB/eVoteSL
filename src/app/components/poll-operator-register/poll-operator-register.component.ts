@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ValidateService} from '../../services/validate.service';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-poll-operator-register',
@@ -29,7 +30,13 @@ export class PollOperatorRegisterComponent implements OnInit {
     };
     // required
     if (!this.validateService.validateOperatorRegister(user)) {
-      window.alert('Please fill in all fields');
+      swal({
+        position: 'top',
+        type: 'warning',
+        title: 'Please fill all the fields',
+        showConfirmButton: false,
+        timer: 1500
+      });
       return false;
     }
     
@@ -39,11 +46,26 @@ export class PollOperatorRegisterComponent implements OnInit {
 
       if (data.success) {
         
-        window.alert('Poll operator is added to the system');
-        this.router.navigate(['/dashboard']);
+        swal({
+          position: 'top',
+          type: 'success',
+          title: 'successfully registered',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.name = undefined;
+        this.username = undefined;
+        this.poll_station = undefined;
+        this.password = undefined;
       } else {
-        window.alert(data.msg);
-        //this.router.navigate(['/dashboard']);
+        swal({
+          position: 'top',
+          type: 'warning',
+          title: data.msg,
+          showConfirmButton: false,
+          timer: 1500
+        });
+        
       }
     });
   }

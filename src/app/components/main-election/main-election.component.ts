@@ -23,7 +23,7 @@ export class MainElectionComponent implements OnInit {
             title: "Access Denied!",
             text:"An election should be started by the administrators, in order to access here",
             showConfirmButton: false,
-            timer: 8000
+            timer: 6000
           })
           this.router.navigate(['/'])
         }

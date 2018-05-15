@@ -16,9 +16,9 @@ export class SidebarComponent implements OnInit {
     //this.usertype=this.auth.getUser().usertype;
     this.usertype=JSON.parse(localStorage.getItem("user")).usertype;
     //this.auth.getUser().usertype;
-    console.log(this.auth.getUser().usertype);
+    //console.log(this.auth.getUser().usertype);
     if(this.usertype==="admin"){
-      console.log(this.usertype);
+      
       this.admin=true;
     }else if(this.usertype==="sAdmin"){
       this.sAdmin=true;
