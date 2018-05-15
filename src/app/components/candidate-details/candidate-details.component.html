@@ -43,9 +43,13 @@
                   <input id="nic" name="nic" type="text" [(ngModel)]="nic" name="nic" class="form-control input-md">               
               </div>                          
               <div class="form-group">
-                <label class="col-md-4 control-label" for="party">Party</label>               
-                  <input id="party" name="party" type="text" [(ngModel)]="party" name="party" class="form-control input-md">                                  
-              </div>              
+                  <label>Party</label>
+                  <select  class="form-control" name="party" [(ngModel)]="party">
+                    
+                    <option *ngFor="let party of parties" value= "{{party.name }}">{{party.name}}</option>
+                    
+                  </select>
+                </div>             
               <div class="form-group">
                 <label class="col-md-4 control-label" for="candidate_no">Number</label>                  
                 <input id="candidate_no" name="candidate_no" type="number" [(ngModel)]="candidate_no" name="candidate_no" class="form-control input-md">              

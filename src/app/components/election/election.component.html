@@ -1,35 +1,37 @@
-<div class=" text-center center">
+<div *ngIf = "admin">
+    <div class=" text-center center">
 
-    <h1>{{election}}</h1>
+        <h1>{{election}}</h1>
 
-</div>
-
-<br>
-<div *ngIf="!newElection " class="center text-center">
-    <a class="btn btn-info btn-lg btn-xl" (click)="newElections()">New Election</a>
-</div>
-<div *ngIf="newElection " class="center text-center">
-    <div *ngIf="!stopped ">
-        <a *ngIf="!started " class="btn btn-info btn-lg btn-xl" (click)="startElection()">Start Election</a>
-    </div>
-</div>
-
-<div *ngIf="newElection " class="center text-center">
-
-    <a *ngIf="started" class="btn btn-info btn-lg btn-xl" (click)="stopElection()">Stop Election</a>
-</div>
-
-<br>
-
-<div *ngIf="started" class=" text-center center">
-    <h4>The Election is Started.......</h4>
-</div>
-
-<div *ngIf="stopped" class="footer center text-center">
-    <div >
-        <a class="btn btn-info btn-lg btn-xl" (click)="checkResult()">Check Results</a>
-
-        <a class="btn btn-info btn-lg btn-xl" (click)="releaseResult()">Release Results</a>
     </div>
 
+    <br>
+    <div *ngIf="!newElection " class="center text-center">
+        <a class="btn btn-info btn-lg btn-xl" (click)="newElections()">New Election</a>
+    </div>
+    <div *ngIf="newElection " class="center text-center">
+        <div *ngIf="!stopped ">
+            <a *ngIf="!started " class="btn btn-info btn-lg btn-xl" (click)="startElection()">Start Election</a>
+        </div>
+    </div>
+
+    <div *ngIf="newElection " class="center text-center">
+
+        <a *ngIf="started" class="btn btn-info btn-lg btn-xl" (click)="stopElection()">Stop Election</a>
+    </div>
+
+    <br>
+
+    <div *ngIf="started" class=" text-center center">
+        <h4>The Election is Started.......</h4>
+    </div>
+
+    <div *ngIf="stopped" class="footer center text-center">
+        <div>
+            <a class="btn btn-info btn-lg btn-xl" (click)="checkResult()">Check Results</a>
+
+            <a class="btn btn-info btn-lg btn-xl" (click)="releaseResult()">Release Results</a>
+        </div>
+
+    </div>
 </div>

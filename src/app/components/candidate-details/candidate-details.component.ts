@@ -17,6 +17,7 @@ export class CandidateDetailsComponent implements OnInit {
   party: String;
   candidate_no: Number;
   candidate_id: any;
+  parties: any[] = [];
 
 
   constructor(private userService: UserService, private validateService: ValidateService,
@@ -28,6 +29,11 @@ export class CandidateDetailsComponent implements OnInit {
       .subscribe(candidates => {
         this.candidates = candidates;
       });
+      this.userService.getParty()
+      .subscribe(parties => {
+        this.parties = parties;
+      });
+    
   }
 
   deleteCandidate(id) {

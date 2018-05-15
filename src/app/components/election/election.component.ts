@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-election',
@@ -12,7 +13,20 @@ export class ElectionComponent implements OnInit {
   stopped: Boolean;
   releaseResults: Boolean;
   newElection: Boolean;
-  constructor(private authService: AuthService) { }
+  usertype:string;
+  admin:boolean=false;
+  sAdmin:boolean=false;
+
+  constructor(private authService: AuthService,
+              private router: Router) { 
+    this.usertype=JSON.parse(localStorage.getItem("user")).usertype;
+    if(this.usertype==="admin"){  
+      this.admin=true;
+    }else if(this.usertype==="sAdmin"){
+      this.sAdmin=true;
+      this.router.navigate(['/dashboard']);
+    }
+  }
 
   ngOnInit() {
     this.authService.getAccess()
