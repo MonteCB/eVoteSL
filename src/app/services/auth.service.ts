@@ -23,14 +23,14 @@ export class AuthService {
     console.log(user.email);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
+    return this.http.post('/users/register', user, {headers: headers})
       .map(res => res.json());
   }
 
   registerOperator(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register_po', user, {headers: headers})
+    return this.http.post('/users/register_po', user, {headers: headers})
       .map(res => res.json());
   }
 
@@ -38,21 +38,21 @@ export class AuthService {
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register_booth', user, {headers: headers})
+    return this.http.post('/users/register_booth', user, {headers: headers})
       .map(res => res.json());
   }
 
   registerVoter(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register_voter', user, {headers: headers})
+    return this.http.post('/users/register_voter', user, {headers: headers})
       .map(res => res.json());
   }
 
   registerParty(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register_party', user, {headers: headers})
+    return this.http.post('/users/register_party', user, {headers: headers})
       .map(res => res.json());
   }
 
@@ -60,63 +60,63 @@ export class AuthService {
     console.log(user.nic);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register_candidate', user, {headers: headers})
+    return this.http.post('/users/register_candidate', user, {headers: headers})
       .map(res => res.json());
   }
 
   updateCandidate(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/update_candidate', user, {headers: headers})
+    return this.http.post('/users/update_candidate', user, {headers: headers})
       .map(res => res.json());
   }
 
   updateVoter(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/update_voter', user, {headers: headers})
+    return this.http.post('/users/update_voter', user, {headers: headers})
       .map(res => res.json());
   }
 
   updateUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/update_user', user, {headers: headers})
+    return this.http.post('/users/update_user', user, {headers: headers})
       .map(res => res.json());
   }
 
   ChangePassword(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/change_pwd', user, {headers: headers})
+    return this.http.post('/users/change_pwd', user, {headers: headers})
       .map(res => res.json());
   }
 
   authenticateUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
+    return this.http.post('/users/authenticate', user, {headers: headers})
       .map(res => res.json());
   }
 
   authenticateOperator(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/authenticate_po', user, {headers: headers})
+    return this.http.post('/users/authenticate_po', user, {headers: headers})
       .map(res => res.json());
   }
 
   authenticateVoter(voter) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/authenticate_voter', voter, {headers: headers})
+    return this.http.post('/users/authenticate_voter', voter, {headers: headers})
       .map(res => res.json());
   }
 
   authenticateBooth(booth) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/authenticate_booth', booth, {headers: headers})
+    return this.http.post('/users/authenticate_booth', booth, {headers: headers})
       .map(res => res.json());
   }
   
@@ -126,7 +126,7 @@ export class AuthService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:3000/users/profile', {headers: headers})
+    return this.http.get('/users/profile', {headers: headers})
       .map(res => res.json());
   }
   getBooth() {
@@ -134,7 +134,7 @@ export class AuthService {
     this.loadBoothToken();
     headers.append('Authorization', this.authTokenB);
     headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:3000/users/booth_profile', {headers: headers})
+    return this.http.get('/users/booth_profile', {headers: headers})
       .map(res => res.json());
   }
 
@@ -143,40 +143,40 @@ export class AuthService {
     this.loadOperatorToken();
     headers.append('Authorization', this.authTokenO);
     headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:3000/users/po_profile', {headers: headers})
+    return this.http.get('/users/po_profile', {headers: headers})
       .map(res => res.json());
   }
 
   getAccess(){
-    return this.http.get('http://localhost:3000/users/access')
+    return this.http.get('/users/access')
       .map(res => res.json());
   }
 
   newElections() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/new_election', {headers: headers})
+    return this.http.post('/users/new_election', {headers: headers})
       .map(res => res.json());
   }
 
   startElection() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/start_election', {headers: headers})
+    return this.http.post('/users/start_election', {headers: headers})
       .map(res => res.json());
   }
 
   stopElection() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/stop_election', {headers: headers})
+    return this.http.post('/users/stop_election', {headers: headers})
       .map(res => res.json());
   }
 
   releaseResult() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/release_results', {headers: headers})
+    return this.http.post('/users/release_results', {headers: headers})
       .map(res => res.json());
   }
 
