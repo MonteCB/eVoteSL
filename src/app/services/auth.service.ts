@@ -235,7 +235,22 @@ export class AuthService {
   logout() {
     this.authToken = null;
     this.user = null;
-    localStorage.clear();
+    localStorage.removeItem("user");
+    localStorage.removeItem("id_token");
+  }
+
+  logoutBooth() {
+    this.authToken = null;
+    this.user = null;
+    localStorage.removeItem("booth");
+    localStorage.removeItem("booth_token");
+  }
+
+  logoutAuth() {
+    this.authToken = null;
+    this.user = null;
+    localStorage.removeItem("operator");
+    localStorage.removeItem("op_token");
   }
 }
 

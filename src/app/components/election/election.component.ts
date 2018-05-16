@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import {Router} from '@angular/router';
+import { UserService } from '../../services/user.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-election',
@@ -18,7 +20,9 @@ export class ElectionComponent implements OnInit {
   sAdmin:boolean=false;
 
   constructor(private authService: AuthService,
-              private router: Router) { 
+              private router: Router,
+              private userService: UserService) { 
+
     this.usertype=JSON.parse(localStorage.getItem("user")).usertype;
     if(this.usertype==="admin"){  
       this.admin=true;
@@ -43,7 +47,7 @@ export class ElectionComponent implements OnInit {
     this.authService.newElections()
       .subscribe(data => {
         if (data.success) {
-          window.alert("fdvx");
+          
           this.authService.getAccess()
             .subscribe(data => {
               this.newElection = data[0].new_election;
@@ -57,7 +61,7 @@ export class ElectionComponent implements OnInit {
     this.authService.startElection()
       .subscribe(data => {
         if (data.success) {
-          window.alert("fdvx");
+
           this.authService.getAccess()
             .subscribe(data => {
               this.election = data[0].name;
@@ -65,8 +69,12 @@ export class ElectionComponent implements OnInit {
               this.started = data[0].started;
               this.newElection = data[0].new_election;
               this.releaseResults = data[0].can_release;
-
             });
+          
+          this.userService.resetData()
+          .subscribe(data => {
+        
+          });  
         }
       })
   }
@@ -76,7 +84,7 @@ export class ElectionComponent implements OnInit {
     this.authService.stopElection()
       .subscribe(data => {
         if (data.success) {
-          window.alert("fdvx");
+         
           this.authService.getAccess()
             .subscribe(data => {
               this.election = data[0].name;
@@ -95,7 +103,7 @@ export class ElectionComponent implements OnInit {
     this.authService.releaseResult()
       .subscribe(data => {
         if (data.success) {
-          window.alert("fdvx");
+          
           this.authService.getAccess()
             .subscribe(data => {
               this.election = data[0].name;

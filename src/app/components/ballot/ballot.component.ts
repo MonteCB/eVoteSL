@@ -13,6 +13,7 @@ export class BallotComponent implements OnInit {
   booth: Boolean;
   candidates:any[] = [];
   selectedValue: any;
+  selectedParty: any;
   boothId: any;
   token: any;
   constructor(private userService: UserService,
@@ -50,13 +51,16 @@ export class BallotComponent implements OnInit {
       this.selectedValue = null;
     }else{
       this.selectedValue = type.candidate_no;
+      this.selectedParty = type.party;
+
     }  
     //console.log(this.selectedValue);
   } 
 
   voteCandidate() {
       var _vote = {
-        id: this.selectedValue
+        id: this.selectedValue,
+        party: this.selectedParty
       };
       var currentBooth = {
         id: this.boothId

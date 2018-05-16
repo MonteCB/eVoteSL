@@ -1,7 +1,71 @@
-<div class="wrapper">
-  <h1>Dashboard</h1>
+<div *ngIf = "admin" class="wrapper">
+  <h1>Welcome!</h1>
+  <h4>You have Logged into this system as the Election Commissioner</h4>
+  <h4> <span id="notice">  Please read following Instructions carefully before proceeding to further steps.</span></h4>
   
+  <ul>
+    <li>You must use this system under the Rules and Regulations of Sri Lankan Government</li>
+    <li>In case of any purpose, <span id="notice"><b> DO NOT </b> </span> share your credentials(username/password) with others</li>
+    <li>Always logout from the system after you have done your work, or log in with an Incognito window; <span id="notice"><b> DO NOT </b> </span> save your passwords in any browser</li>
+    
+  </ul>
+
+  <h4>You have privileges to do following actions in this system; you can access them with the side bar in the left side of the screen</h4>
+  <ul>
+      <li>Manage Elections (Start/Stop/Release Results)</li>
+      <li>Register Secondary Admins</li>
+      <li>Manage Candidates</li>
+      <li>Manage Administrators</li>
+      <li>Edit your profile and credentials</li>
+    </ul>  
+
+    <p><b> ----In case of a System failure, contact your Systems Engineer as soon as possible----</b></p>  
+
 </div>
+
+
+<div *ngIf = "sAdmin" class="wrapper">
+    <h1>Welcome!</h1>
+    <h4>You have Logged into this system as a Secondary Administrator</h4>
+    <h4> <span id="notice">  Please read following Instructions carefully before proceeding to further steps.</span></h4>
+    
+    <ul>
+      <li>You must use this system under the Rules and Regulations of Sri Lankan Government</li>
+      <li>In case of any purpose,<span id="notice"><b> DO NOT </b> </span>share your credentials(username/password) with others</li>
+      <li>Always logout from the system after you have done your work, or log in with an Incognito window; <span id="notice"><b> DO NOT</b> </span> save your passwords in any browser</li>
+      <li>Please note that the Election Commissioner has the power to remove your account instantly in any case of misuse of the system</li>
+    </ul>
+  <br>
+    <h4>You have privileges to do following actions in this system; you can access them with the side bar in the left side of the screen</h4>
+    <ul>
+        <li>Register Voters</li>
+        <li>Register Candidates</li>
+        <li>Register Poll Operators</li>
+        <li>Register Poll Booths</li>
+        <li>Add parties</li>
+        <li>Manage Voters and Candidates</li>
+        <li>Edit your profile and credentials</li>
+    </ul>  
+  <br>
+
+      
+    <h4>Instructions to proceed</h4>
+    <ul>
+        <li>Add all Parties before adding the Candidates</li>
+        <li>Candidate ID should be unique</li>
+        <li>Every poll operator should have a unique poll station and a username; this unique id is combined with only one booth.</li>
+        <ul>
+            <li>Register Poll operators before registering the correcponding booth</li>
+            <li>When you Register the booth, select the poll station that you want to combine with that particular booth</li>
+            <li>Booth ID should be unique for each booth as well</li>
+        </ul>
+        <li>The System is designed to achieve the above uniqueness of the features, In case of submitting an already added feature, the system will notify you to avoid such activities </li>
+    </ul>
+    
+  
+    <p><b> ----In case of a System failure, contact your Systems Engineer as soon as possible----</b></p>  
+  
+  </div>
 
 
 

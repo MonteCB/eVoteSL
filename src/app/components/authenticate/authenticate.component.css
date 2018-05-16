@@ -27,3 +27,9 @@
   transform: scale(2.5);
 }
 
+#logout{
+  margin-top: 20px;
+  margin-left: 100%;
+  background-color: red;
+  border-color: red;
+}

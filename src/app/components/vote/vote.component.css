@@ -13,3 +13,10 @@
   border-radius: 30px;
   color: white;
 }
+
+#logout{
+  margin-top: 100%;
+  margin-left: 100%;
+  background-color: red;
+  border-color: red;
+}

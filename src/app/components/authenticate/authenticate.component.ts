@@ -155,6 +155,20 @@ export class AuthenticateComponent implements OnInit {
     });
     this.initiate = false;
   }
+
+  onLogoutClick(){
+    this.authService.logoutAuth();
+    swal({
+      toast: true,
+      
+      title: "Logged Out",
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+    this.router.navigate(['/poll_login']);
+    return false;
+  }
   
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-vote',
@@ -45,6 +46,20 @@ export class VoteComponent implements OnInit {
 
   vote(){
     this.router.navigate(['/poll_login/ballot'])
+  }
+
+  onLogoutClick() {
+    this.authService.logoutBooth();
+    swal({
+      toast: true,
+      
+      title: "Logged Out",
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+    this.router.navigate(['/poll_login']);
+    return false;
   }
 
 }

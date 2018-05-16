@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   user:user;
-  constructor() {
-    
+  usertype:string;
+  admin:boolean=false;
+  sAdmin:boolean=false;
+
+  constructor(private router: Router) {
+    this.usertype=JSON.parse(localStorage.getItem("user")).usertype;
+    if(this.usertype==="admin"){  
+      this.admin=true;
+    }else if(this.usertype==="sAdmin"){
+      this.sAdmin=true;
+      this.router.navigate(['/dashboard']);
+    }
    }
 
   ngOnInit() {

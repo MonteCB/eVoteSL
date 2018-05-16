@@ -14,12 +14,18 @@ body {
 h1 {
   margin-bottom: 20px;
   padding-bottom: 9px;
+  color: #17A2B8;
   
 }
 
 .wrapper{
-  margin-top: 20%;
+  margin-top: 15%;
   margin-left: 30%;
+  width: 120%;
+}
+
+#notice{
+  color: red;
 }
 
 

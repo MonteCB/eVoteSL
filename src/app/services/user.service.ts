@@ -72,6 +72,14 @@ export class UserService {
       .map(res => res.json());
   }
 
+  resetData(){
+    let headers = new Headers();
+    //console.log(currentVoter.id);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/users/reset',  {headers: headers})
+      .map(res => res.json());
+  }
+
   markPollStation(currentPoll){
     let headers = new Headers();
     //console.log(currentVoter.id);

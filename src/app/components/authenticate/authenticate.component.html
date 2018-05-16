@@ -1,5 +1,6 @@
 
 <div class="container" *ngIf="access && acc">
+    <input id="logout" type="submit" (click)="onLogoutClick()" class="btn btn-primary" value="Logout">
   <div class="login-content mx-auto d-block">
     <h2 class="page-header" align="center">Authenticate Voters</h2>
     <form (submit)="onCheck()" class="col-md-12 mx-auto d-block">
