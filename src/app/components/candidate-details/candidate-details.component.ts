@@ -29,11 +29,11 @@ export class CandidateDetailsComponent implements OnInit {
       .subscribe(candidates => {
         this.candidates = candidates;
       });
-      this.userService.getParty()
+    this.userService.getParty()
       .subscribe(parties => {
         this.parties = parties;
       });
-    
+
   }
 
   deleteCandidate(id) {
@@ -72,7 +72,7 @@ export class CandidateDetailsComponent implements OnInit {
   }
 
   onUpdate() {
-    console.log(this.name);
+    
 
     const user = {
       name: this.name,
@@ -94,6 +94,17 @@ export class CandidateDetailsComponent implements OnInit {
       });
       return false;
     }
+
+    if (!this.validateService.validateNic(user.nic)) {
+      swal({
+        position: 'top',
+        type: 'warning',
+        title: 'Please enter a valid NIC',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      return false;
+    } 
 
 
     // Register user
@@ -118,7 +129,7 @@ export class CandidateDetailsComponent implements OnInit {
           timer: 2500
         });
 
-        
+
       }
     });
 

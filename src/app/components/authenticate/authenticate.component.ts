@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 import { UserService } from '../../services/user.service';
+import { ValidateService } from '../../services/validate.service';
 
 @Component({
   selector: 'app-authenticate',
@@ -21,12 +22,12 @@ export class AuthenticateComponent implements OnInit {
   
 
 
-  constructor(private userService: UserService,
-    private authService: AuthService,
-    private router: Router) { }
+  constructor(private validateService: ValidateService, public userService: UserService,
+    public authService: AuthService,
+    public router: Router) { }
 
   ngOnInit() {
-    this.authService.getAccess()
+    this.authService.getAccess()      //check whether the user has the access
       .subscribe(data => {
         if(data[0].started == false){
           
@@ -39,7 +40,7 @@ export class AuthenticateComponent implements OnInit {
     this.initiate = false;
     this.operator = localStorage.getItem('operator');
     this.token = localStorage.getItem('op_token');
-    if (this.operator == null || this.token==null) {
+    if (this.operator == null || this.token==null) {    //authenticate with the token 
       this.access = false;
       this.router.navigate(['/poll_login/poll_worker_login']);
     } else {
@@ -48,6 +49,19 @@ export class AuthenticateComponent implements OnInit {
     }
   }
   onCheck() {
+    const user = {    
+      nic: this.nic,     
+    };
+    if (!this.validateService.validateNic(user.nic)) {
+      swal({
+        position: 'top',
+        type: 'warning',
+        title: 'Please enter a valid NIC',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      return false;
+    } 
     this.authService.getAccess()
       .subscribe(data => {
         if(data[0].started == false){

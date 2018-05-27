@@ -39,6 +39,17 @@ export class RegCandidateComponent implements OnInit {
       email: this.email
   
     };
+
+    if (!this.validateService.validateNic(user.nic)) {
+      swal({
+        position: 'top',
+        type: 'warning',
+        title: 'Please enter a valid NIC',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      return false;
+    } 
     // required
     if (!this.validateService.validateCandidateRegister(user)) {
       //this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 3000});

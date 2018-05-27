@@ -3,14 +3,6 @@
     <nav id="sidebar" class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
 
       <ul class="list-unstyled components">
-          <li class="active">
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li><a href="#">Home 1</a></li>
-                  <li><a href="#">Home 2</a></li>
-                  <li><a href="#">Home 3</a></li>
-              </ul>
-          </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/dashboard']">Dashboard
             <span class="sr-only">(current)</span>
@@ -19,29 +11,42 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/dashboard/profile']">Profile</a>
         </li>
-        <li class="nav-item" *ngIf="admin">
-          <a class="nav-link" [routerLink]="['/dashboard/register']">Register Admin</a>
-        </li>
-        <li class="nav-item" *ngIf="sAdmin">
-          <a class="nav-link" [routerLink]="['/dashboard/regcandidate']">Register Candidates</a>
-        </li>
-        <li class="nav-item" *ngIf="sAdmin">
-          <a class="nav-link" [routerLink]="['/dashboard/add_party']">Add Party</a>
-        </li>
-        <li class="nav-item" *ngIf="sAdmin">
-          <a class="nav-link" [routerLink]="['/dashboard/regvoter']">Register Voters</a>
-        </li>
-        <li class="nav-item" *ngIf="sAdmin">
-          <a class="nav-link" [routerLink]="['/dashboard/create_booth']">Create Polling Booth</a>
-        </li>
-        <li class="nav-item" *ngIf="sAdmin">
-          <a class="nav-link" [routerLink]="['/dashboard/regpollOperator']">Register Poll Operators</a>
+        <li class="nav-item">
+          <a href="#homeSubmenu" class="nav-link" data-toggle="collapse" aria-expanded="false">User Registration</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li class="nav-item" *ngIf="admin">
+              <a class="nav-link" [routerLink]="['/dashboard/register']">Register Admin</a>
+            </li>
+            <li class="nav-item" *ngIf="sAdmin">
+              <a class="nav-link" [routerLink]="['/dashboard/regcandidate']">Register Candidates</a>
+            </li>
+            <li class="nav-item" *ngIf="sAdmin">
+              <a class="nav-link" [routerLink]="['/dashboard/add_party']">Add Party</a>
+            </li>
+            <li class="nav-item" *ngIf="sAdmin">
+              <a class="nav-link" [routerLink]="['/dashboard/regvoter']">Register Voters</a>
+            </li>
+            <li class="nav-item" *ngIf="sAdmin">
+              <a class="nav-link" [routerLink]="['/dashboard/create_booth']">Create Polling Booth</a>
+            </li>
+            <li class="nav-item" *ngIf="sAdmin">
+              <a class="nav-link" [routerLink]="['/dashboard/regpollOperator']">Register Poll Operators</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/dashboard/candidate_detail']">Candidate Management</a>
-        </li>
-        <li class="nav-item" *ngIf="sAdmin">
-          <a class="nav-link" [routerLink]="['/dashboard/voter_detail']">Voter Management</a>
+          <a href="#homSubmenu" class="nav-link" data-toggle="collapse" aria-expanded="false">User Management</a>
+          <ul class="collapse list-unstyled" id="homSubmenu">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/dashboard/candidate_detail']">Candidate Management</a>
+            </li>
+            <li class="nav-item" *ngIf="sAdmin">
+              <a class="nav-link" [routerLink]="['/dashboard/voter_detail']">Voter Management</a>
+            </li>
+            <li class="nav-item" *ngIf="admin">
+                <a class="nav-link" [routerLink]="['/dashboard/sa_details']">Secondary Admins</a>
+              </li>
+          </ul>
         </li>
         <li class="nav-item" *ngIf="admin">
           <a class="nav-link" [routerLink]="['/dashboard/election']">Elections</a>

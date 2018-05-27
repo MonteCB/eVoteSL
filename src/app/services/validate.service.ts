@@ -38,6 +38,11 @@ export class ValidateService {
     }
   }
 
+  validateNic(nic){
+    const re = /^[0-9]{9}[v|V]$/;
+    return re.test(String(nic));
+  }
+
   validatePollRegister(user) {
     if (user.booth_id === undefined || user.poll_station === undefined || user.password === undefined) {
       return false;

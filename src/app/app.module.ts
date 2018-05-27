@@ -37,6 +37,10 @@ import { MainElectionComponent } from './components/main-election/main-election.
 import { ViewResultsComponent } from './components/view-results/view-results.component';
 import { PollWorkerLoginComponent } from './components/poll-worker-login/poll-worker-login.component';
 import { PollOperatorRegisterComponent } from './components/poll-operator-register/poll-operator-register.component';
+import { AdminViewComponent } from './components/admin-view/admin-view.component';
+import { SAdminDetailsComponent } from './components/s-admin-details/s-admin-details.component';
+import { BoothDetailsComponent } from './components/booth-details/booth-details.component';
+import { PoDetailsComponent } from './components/po-details/po-details.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -58,7 +62,10 @@ const appRoutes: Routes = [
       {path: 'add_party', component: AddPartyComponent},
       {path: 'election', component: ElectionComponent},
       {path: 'create_booth', component: CreateBoothComponent},
-      {path: 'profile', component: ProfileComponent}
+      {path: 'profile', component: ProfileComponent},
+      {path: 'sa_details', component: SAdminDetailsComponent },
+      {path: 'booth_details', component: BoothDetailsComponent },
+      {path: 'po_details', component: PoDetailsComponent }
     ]
   },
   {path: 'poll_login', component: MainElectionComponent,  children: [
@@ -102,7 +109,11 @@ const appRoutes: Routes = [
     MainElectionComponent,
     ViewResultsComponent,
     PollWorkerLoginComponent,
-    PollOperatorRegisterComponent
+    PollOperatorRegisterComponent,
+    AdminViewComponent,
+    SAdminDetailsComponent,
+    BoothDetailsComponent,
+    PoDetailsComponent
   ],
   imports: [
     BrowserModule,

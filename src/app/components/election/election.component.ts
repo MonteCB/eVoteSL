@@ -18,6 +18,8 @@ export class ElectionComponent implements OnInit {
   usertype:string;
   admin:boolean=false;
   sAdmin:boolean=false;
+  show: Boolean;
+  name: string;
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -33,6 +35,7 @@ export class ElectionComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.show = false;
     this.authService.getAccess()
       .subscribe(data => {
         this.election = data[0].name;
@@ -115,6 +118,34 @@ export class ElectionComponent implements OnInit {
             });
         }
       })
+
+  }
+
+  checkResult(){
+    this.show = !this.show;
+  }
+
+  editElection(){
+    
+    const user = {
+      name: this.name
+    };
+    
+    this.userService.editElection(user).subscribe(data => {
+      if(data.success){
+        swal({
+
+
+          title: "Done",
+          showConfirmButton: false,
+          timer: 1500
+        })
+        window.location.reload();
+      }else{
+        
+        window.alert(data.msg);
+      }
+    });
 
   }
 

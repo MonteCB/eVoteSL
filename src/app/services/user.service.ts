@@ -20,6 +20,11 @@ export class UserService {
       .map(res => res.json());
   }
 
+  getAdmin(){
+    return this.http.get('/users/admin')
+      .map(res => res.json());
+  }
+
   getParty(){
     return this.http.get('/users/party')
       .map(res => res.json());
@@ -37,6 +42,11 @@ export class UserService {
 
   deleteCandidate(id){
     return this.http.delete('/users/candidate/'+ id)
+      .map(res => res.json());
+  }
+
+  deleteAdmin(id){
+    return this.http.delete('/users/admin/'+ id)
       .map(res => res.json());
   }
 
@@ -71,6 +81,15 @@ export class UserService {
     return this.http.post('/users/mark_voter', currentVoter,  {headers: headers})
       .map(res => res.json());
   }
+
+  editElection(user){
+    let headers = new Headers();
+    //console.log(currentVoter.id);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/users/edit_el', user, {headers: headers})
+      .map(res => res.json());
+  }
+
 
   resetData(){
     let headers = new Headers();

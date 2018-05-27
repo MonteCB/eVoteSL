@@ -10,8 +10,8 @@ import swal from 'sweetalert2';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authService: AuthService,
-              private router: Router) {
+  constructor(public authService: AuthService,
+              public router: Router) {
   }
 
   ngOnInit() {

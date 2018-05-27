@@ -16,9 +16,9 @@ export class BallotComponent implements OnInit {
   selectedParty: any;
   boothId: any;
   token: any;
-  constructor(private userService: UserService,
-    private router: Router,
-    private authService: AuthService) { }
+  constructor(public userService: UserService,
+    public router: Router,
+    public authService: AuthService) { }
 
   ngOnInit() {
     this.token = localStorage.getItem('booth_token');
@@ -89,17 +89,8 @@ export class BallotComponent implements OnInit {
     
         this.router.navigate(['/poll_login/vote']);  // navigate to the dashboard after login
         } else {
-          window.alert(data.msg);
-          
-          
-           
+          window.alert(data.msg);          
         }
       });
-    }
-  
-
-
-
-  
-
+    }    
 }

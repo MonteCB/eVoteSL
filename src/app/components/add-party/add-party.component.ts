@@ -12,9 +12,9 @@ import {Router} from '@angular/router';
 export class AddPartyComponent implements OnInit {
   name: String;
   party_id: String;
-  constructor(private validateService: ValidateService,
-              private authService: AuthService,
-              private router: Router) { }
+  constructor(public validateService: ValidateService,
+              public authService: AuthService,
+              public router: Router) { }
 
   ngOnInit() {
   }
