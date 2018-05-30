@@ -23,6 +23,7 @@ export class AdminViewComponent implements OnInit {
       });
     this.userService.getCandidate()
       .subscribe(candidates => {
+        //sort the candidates according to their received votes
         var arr = candidates;
         var n = candidates.length;
         for (var i = 0; i < n - 1; i++) {

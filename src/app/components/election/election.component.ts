@@ -24,7 +24,7 @@ export class ElectionComponent implements OnInit {
   constructor(private authService: AuthService,
               private router: Router,
               private userService: UserService) { 
-
+    //restrict access only to election commissioner
     this.usertype=JSON.parse(localStorage.getItem("user")).usertype;
     if(this.usertype==="admin"){  
       this.admin=true;
@@ -45,7 +45,7 @@ export class ElectionComponent implements OnInit {
         this.releaseResults = data[0].can_release;
       });
   }
-
+  //define new election
   newElections() {
     this.authService.newElections()
       .subscribe(data => {
@@ -60,6 +60,7 @@ export class ElectionComponent implements OnInit {
       })
   }
 
+  //start defined election
   startElection() {
     this.authService.startElection()
       .subscribe(data => {
@@ -82,6 +83,8 @@ export class ElectionComponent implements OnInit {
       })
   }
 
+
+  //stop a started election
   stopElection() {
     
     this.authService.stopElection()

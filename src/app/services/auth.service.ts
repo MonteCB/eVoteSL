@@ -18,6 +18,8 @@ export class AuthService {
     this.user = localStorage.getItem('user');
     
   }
+
+                                // registration routes
  // register authentication
   registerUser(user) {
     console.log(user.email);
@@ -27,6 +29,7 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  //register poll operators
   registerOperator(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -64,6 +67,8 @@ export class AuthService {
       .map(res => res.json());
   }
 
+                      // update routes
+
   updateCandidate(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -92,6 +97,8 @@ export class AuthService {
       .map(res => res.json());
   }
 
+
+                  // authentication routes
   authenticateUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');

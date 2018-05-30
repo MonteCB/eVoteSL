@@ -37,7 +37,7 @@ export class AddPartyComponent implements OnInit {
       return false;
     }  
 
-    // Register user
+    // Register party
     this.authService.registerParty(user).subscribe(data => {
       if (data.success) {
         swal({

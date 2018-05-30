@@ -21,7 +21,8 @@ export class BallotComponent implements OnInit {
     public authService: AuthService) { }
 
   ngOnInit() {
-    this.token = localStorage.getItem('booth_token');
+    //check whether the booth has the access to the ballot using the both token authentication
+    this.token = localStorage.getItem('booth_token');  
     if(this.token == null){
       this.router.navigate(['/poll_login']); 
     }else{
@@ -46,7 +47,7 @@ export class BallotComponent implements OnInit {
   }
 
   change(type){
-    //console.log(type);
+                                      //get the selected candidate
     if(type == null){
       this.selectedValue = null;
     }else{
@@ -54,10 +55,9 @@ export class BallotComponent implements OnInit {
       this.selectedParty = type.party;
 
     }  
-    //console.log(this.selectedValue);
   } 
 
-  voteCandidate() {
+  voteCandidate() {       
       var _vote = {
         id: this.selectedValue,
         party: this.selectedParty
@@ -67,15 +67,11 @@ export class BallotComponent implements OnInit {
       };
 
     
-      
-      this.userService.placeVote(_vote).subscribe(data => {
-        //console.log(data);
-        if (data.success) {
-          //window.alert("Success");
-          this.userService.markBooth(currentBooth).subscribe(data => {
-            //console.log(data);
+      //place the vote
+      this.userService.placeVote(_vote).subscribe(data => {       
+        if (data.success) {         
+          this.userService.markBooth(currentBooth).subscribe(data => {            
             if (!data.success) {
-              //window.alert("Success"
               window.alert(data.msg); 
             }
           });
@@ -87,7 +83,7 @@ export class BallotComponent implements OnInit {
             timer: 1500
           })
     
-        this.router.navigate(['/poll_login/vote']);  // navigate to the dashboard after login
+        this.router.navigate(['/poll_login/vote']);  // navigate to the previous page after placing a vote
         } else {
           window.alert(data.msg);          
         }

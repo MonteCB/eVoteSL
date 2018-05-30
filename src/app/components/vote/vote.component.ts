@@ -18,6 +18,7 @@ export class VoteComponent implements OnInit {
               private authService: AuthService) { }
 
   ngOnInit() {
+    //check if the device is logged into a certain booth account
     this.token = localStorage.getItem('booth_token');
     
     this.booth = JSON.parse(localStorage.getItem("booth"));

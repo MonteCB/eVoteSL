@@ -39,17 +39,12 @@ import { PollWorkerLoginComponent } from './components/poll-worker-login/poll-wo
 import { PollOperatorRegisterComponent } from './components/poll-operator-register/poll-operator-register.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
 import { SAdminDetailsComponent } from './components/s-admin-details/s-admin-details.component';
-import { BoothDetailsComponent } from './components/booth-details/booth-details.component';
-import { PoDetailsComponent } from './components/po-details/po-details.component';
+
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'results', component: ViewResultsComponent},
-  // {path: 'authenticate', component: AuthenticateComponent},
-  // {path: 'poll_worker_login', component: PollWorkerLoginComponent},
-  // {path: 'poll_login', component: PollingBoothComponent},
-  // {path: 'booth_login', component: BoothLoginComponent},
   {path: 'dashboard', component: MainComponent, canActivate: [AuthGuard], children: [
       {path: '', component: DashboardComponent},
       {path: 'profile', component: ProfileComponent},
@@ -63,9 +58,7 @@ const appRoutes: Routes = [
       {path: 'election', component: ElectionComponent},
       {path: 'create_booth', component: CreateBoothComponent},
       {path: 'profile', component: ProfileComponent},
-      {path: 'sa_details', component: SAdminDetailsComponent },
-      {path: 'booth_details', component: BoothDetailsComponent },
-      {path: 'po_details', component: PoDetailsComponent }
+      {path: 'sa_details', component: SAdminDetailsComponent }
     ]
   },
   {path: 'poll_login', component: MainElectionComponent,  children: [
@@ -79,8 +72,7 @@ const appRoutes: Routes = [
   
   
     
-  // should be protected
-  // {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}       // should be protected
+      
 ];
 
 @NgModule({
@@ -111,9 +103,7 @@ const appRoutes: Routes = [
     PollWorkerLoginComponent,
     PollOperatorRegisterComponent,
     AdminViewComponent,
-    SAdminDetailsComponent,
-    BoothDetailsComponent,
-    PoDetailsComponent
+    SAdminDetailsComponent
   ],
   imports: [
     BrowserModule,

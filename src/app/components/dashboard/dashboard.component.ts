@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   sAdmin:boolean=false;
 
   constructor(private router: Router) {
+    //navigate dashboard according to the type of admin
     this.usertype=JSON.parse(localStorage.getItem("user")).usertype;
     if(this.usertype==="admin"){  
       this.admin=true;
